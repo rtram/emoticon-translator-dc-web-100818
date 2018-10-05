@@ -50,14 +50,14 @@ def get_english_meaning (filepath, emoticon)
   sorry_message = "Sorry, that emoticon was not found"
   
   #check to see if emoticon is included in dictionary, if not return sorry_message
-  if dictionary["get_emoticon"].keys.include? (emoticon)
+  if dictionary["get_meaning"].keys.include? (emoticon)
   
     #iterate through dictionary to find matching emoticon and then return jap_emote
     dictionary.each do |translator, translation|
-      if translator == "get_emoticon"
-        translation.each do |eng_emote, jap_emote|
-          if emoticon == eng_emote
-            return jap_emote
+      if translator == "get_meaning"
+        translation.each do |jap_emote, definition|
+          if emoticon == jap_emote
+            return definition
           end 
         end 
       end 
