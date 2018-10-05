@@ -24,7 +24,7 @@ def load_library (filepath)
 end
 
 def get_japanese_emoticon (filepath, emoticon)
-  load_library(filepath)
+  dictionary = load_library(filepath)
   binding.pry 
 end
 
