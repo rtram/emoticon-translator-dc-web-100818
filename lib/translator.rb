@@ -25,6 +25,7 @@ end
 
 def get_japanese_emoticon (filepath, emoticon)
   dictionary = load_library(filepath)
+  sorry_message = "Sorry, that emoticon was not found"
   
   #iterate through dictionary to find matching emoticon and then return jap_emote
   dictionary.each do |translator, translation|
@@ -32,6 +33,9 @@ def get_japanese_emoticon (filepath, emoticon)
     translation.each do |eng_emote, jap_emote|
       if emoticon == eng_emote
         return jap_emote
+      end 
+    end 
+  end 
   
   binding.pry
 end
