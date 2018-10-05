@@ -37,8 +37,7 @@ def get_japanese_emoticon (filepath, emoticon)
       end 
     end 
   end 
-  
-  binding.pry
+
 end
 
 def get_english_meaning (filepath, emoticon)
