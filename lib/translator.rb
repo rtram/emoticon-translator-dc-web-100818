@@ -27,17 +27,22 @@ def get_japanese_emoticon (filepath, emoticon)
   dictionary = load_library(filepath)
   sorry_message = "Sorry, that emoticon was not found"
   
-  #iterate through dictionary to find matching emoticon and then return jap_emote
-  dictionary.each do |translator, translation|
-    if translator == "get_emoticon"
-      translation.each do |eng_emote, jap_emote|
-        if emoticon == eng_emote
-          return jap_emote
+  #check to see if emoticon is included in dictionary, if not return sorry_message
+  if dictionary["get_emoticon"].keys.include? (emoticon)
+  
+    #iterate through dictionary to find matching emoticon and then return jap_emote
+    dictionary.each do |translator, translation|
+      if translator == "get_emoticon"
+        translation.each do |eng_emote, jap_emote|
+          if emoticon == eng_emote
+            return jap_emote
+          end 
         end 
       end 
     end 
+  else 
+    return sorry_message
   end 
-
 end
 
 def get_english_meaning (filepath, emoticon)
